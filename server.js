@@ -20,10 +20,27 @@ const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(dbConfig.connectionString, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,  
+    useFindAndModify: false,
+
   })
+  /*.connect(`mongodb+srv://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,  
+    useFindAndModify: false,
+
+  }) */
+/*.connect(`mongodb+srv://Akashdev:zkXnBAwYUPnamcJa@cluster0.mrnf7hx.mongodb.net/?retryWrites=true&w=majority`,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,  
+    useFindAndModify: false,
+
+  })*/
   .then(() => {
     console.log("Successfully connect to MongoDB.");
     initial();
