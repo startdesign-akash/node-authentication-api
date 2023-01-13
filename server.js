@@ -4,8 +4,8 @@ const dbConfig = require("./app/config/db.config");
 
 const app = express();
 
-var corsOptions = {
-  origin: "https://node-demo-auth.onrender.com"
+var corsOptions = { 
+  origin:['https://node-demo-auth.onrender.com', 'http://localhost:3000','http://localhost:8081']
 };
 
 app.use(cors(corsOptions));
